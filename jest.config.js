@@ -1,5 +1,4 @@
 module.exports = {
-  preset: "jest-puppeteer",
   testMatch: ["**/classes/classes.test.ts"],
   testPathIgnorePatterns: ["/node_modules/", "built"],
   testEnvironment: "jsdom",

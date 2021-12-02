@@ -11,9 +11,7 @@
     "lint": "prettier --write .",
     "clean": "gulp clean",
     "package": "gulp package",
-    "test": "jest --runInBand ./test/classes/classes.test.ts",
-    "test:browser": "HEADLESS=true jest --runInBand ./test/targets/browser.test.ts",
-    "test:spectrometer": "TARGET=spectrometer HEADLESS=true jest --runInBand ./test/targets/spectrometer.test.ts"
+    "test": "jest ./test/classes/classes.test.ts"
   },
   "repository": {
     "type": "git",
@@ -52,6 +50,7 @@
     "path-browserify": "^1.0.1",
     "prettier": "^2.4.1",
     "style-loader": "^3.0.0",
+    "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.3",
     "typescript": "^4.4.3",
     "webpack": "^5.42.0",
