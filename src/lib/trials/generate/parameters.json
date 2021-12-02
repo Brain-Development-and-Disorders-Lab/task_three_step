@@ -1,0 +1,28 @@
+{
+  "trials": [
+    {
+      "name": "practice_one",
+      "number": 5
+    },
+    {
+      "name": "practice_two",
+      "number": 10
+    },
+    {
+      "name": "practice_three",
+      "number": 20
+    },
+    {
+      "name": "main_one",
+      "number": 5
+    },
+    {
+      "name": "main_two",
+      "number": 10
+    },
+    {
+      "name": "main_three",
+      "number": 250
+    }
+  ]
+}

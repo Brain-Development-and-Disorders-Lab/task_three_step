@@ -1,0 +1,5 @@
+# Ignored directories
+.idea
+built
+data
+node_modules

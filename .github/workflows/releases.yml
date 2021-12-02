@@ -1,0 +1,31 @@
+name: Task release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2
+    - name: Setup Node ⚙️
+      uses: actions/setup-node@v2
+      with:
+        node-version: '12.x'
+    - name: Install 🚦
+      run: yarn
+    - name: Build 🔨
+      run: yarn build
+    - name: Package 📦
+      run: yarn package
+    - name: Release 🎉
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        prerelease: false
+        files: |
+          threestep.zip

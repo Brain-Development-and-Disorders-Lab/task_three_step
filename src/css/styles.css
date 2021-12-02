@@ -1,0 +1,97 @@
+/*
+Stylesheet for Keramati et al. model-based model-free
+decision-making task.
+
+Author: Henry Burgess <henry.burgess@wustl.edu>
+*/
+/* Containers */
+.graphics-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12vh;
+}
+
+.video-instructions {
+  /* 16:9 aspect ratio */
+  width: 40vw;
+  height: 22.5vw;
+}
+
+/* Header text */
+.header-container {
+  display: flex;
+  color: white;
+  font-size: large;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.header-stage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Stimuli */
+.stimuli-container {
+  flex: 1 1 30%;
+  max-width: 70%;
+  align-items: center;
+}
+
+.stimulus {
+  max-width: 90%;
+}
+
+/* Control images */
+.controls-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr 1fr 1fr;
+  width: 70%;
+  max-height: 4rem;
+}
+
+.controls {
+  max-width: 1%;
+}
+
+/* Paragraphs and fonts */
+/* Headings */
+h1 {
+  font-size: 2.4em;
+  font-weight: bolder;
+}
+
+h2 {
+  font-size: 1.6em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+/* Paragraph */
+p {
+  font-size: 1.2em;
+  padding: 0.5%;
+  line-height: normal;
+  margin: 0;
+}
+
+/* Other elements */
+#attention-check-alternate-text {
+  margin: 0;
+  padding: 0;
+}
+
+#countdown {
+  color: #46cb2c;
+}

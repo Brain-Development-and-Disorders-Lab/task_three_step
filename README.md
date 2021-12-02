@@ -1,48 +1,41 @@
-# Template
+# Three-step task
 
-The template repository for code and data associated with publications from the Brain Development and Disorders Lab.
+## Overview
 
-## Template Features
+The best place to start is the `Plugin.ts` file in the `/src` directory. This is the jsPsych plugin file that defines the experiment behaviour.
 
-This template has been pre-configured to best preserve the data and code stored in it.
+`Configuration.ts` is used to specify parameters unique to the task such as timing and keymappings. It also allows features to be enabled or disabled.
 
-- **Branch protection**: Branch protection has been enabled for the `main` branch. Only the code owners in the Brain Development and Disorders Lab organisation can push to the branch. The following rules are currently being enforced:
-  - _Require a pull request before merging_
-  - _Require status checks to pass before merging_ (if status checks have been enabled)
-  - _Include administrators_
-- **GitHub Actions**: GitHub Actions are disabled by default. They can be enabled if required.
-- **GitHub Wikis**: GitHub Wikis are disabled by default. Data and code documentation are included and versioned in the repository.
-- **GitHub Projects**: Unless the repository is a work-in-progress, GitHub Projects are disabled by default.
-- **Issue Templates**: A bug report issue template has been included.
+## Getting Started
 
-The default branch is named `main`.
+To get started with development, run `yarn dev`. This will start a Webpack development server which can be accessed at [localhost:8080](http://localhost:8080).
 
-## Using the Template
+To run the ESLint style-checker, run `yarn style`. Additionally, Prettier can be run using `yarn lint`.
 
-To use the template, click the green _Use this template_ button. This will prompt you to configure your new repository.
+## Source Code Structure
 
-1. Set the owner to `Brain-Development-and-Disorders-Lab` from the drop-down menu. If you cannot set the organisation, make sure you are a member.
+### /css
 
-2. Set the name of the repository. The naming standard is: `Author_etal_YYYY[_keywords]` where `keywords` is an optional set of keywords associated with the publication. Examples of repository names that use this standard:
-    - `Smith_etal_2021`: code and data associated with John Smith's publication in 2021.
-    - `Smith_etal_2021_cat_cognition`: code and data associate with John Smith's ground-breaking publication in 2021 that examines cognition in cats.
+Any styling used for the experiment is included here.
 
-3. Provide a description of the repository. This should be about one sentence that concisely outlines what publication the code and data is associated with and what is contained in the repository.
+### /img
 
-4. Set the repository visibility initially to `Private`.
+All stimuli are stored in this directory as `.png` or `.svg` files.
 
-5. Click `Create repository from template`, then proceed to add your files.
+### /lib
 
-## Preparing
+The files inside `/lib` contain grouped exports and core runtime code, grouped by their purpose and the functionality they contribute towards.
 
-Before releasing code and data using this template, a number of steps should be taken to ensure the repository is adequately prepared.
+- `API.ts` exports various API classes that are used to link into Gorilla.
+- `Assets.ts` exports classes used to manage assets such as images and videos used throughout the experiment.
+- `Functions.ts` contains a number of exported utility functions including scaling and trial management.
+- `Main.ts` configures the jsPsych timeline and starts the experiment.
+- `Runtime.ts` exports a number of runtime classes used in the experiment such as the `Runner`, `State`, and `Stimuli` classes.
 
-1. Create or update the `.gitignore` file. A `.gitignore` file allows files matching certain patterns to be excluded from version control. This is useful for projects that automatically create extra artefacts such as caches or temporary files. A `.gitignore` file has been included in this repository as a generic starting point.
+#### /lib/classes
 
-2. Create or update the repository license. There are many licenses available for open-source projects. An appropriate license should be added to the repository.
+The `classes` sub-directory contains a file for each class specified and exported by a class contained in `lib`.
 
-3. Ensure all dependencies are correctly listed and up to date. This is of paramount importance if external packages are used or referenced throughout the code.
+#### /lib/trials
 
-4. Set the repository to `Public` visibility once all code and data has been added to the repository and checked.
-    - An effective testing strategy is to clone the private repository into a fresh environment, and run through any steps you would normally take to run or verify the code and data.
-    - If you are using tools that install or depend on packages such as R or Python, ensure you have tested installing all dependencies from Step 3, ideally in a fresh environment with a new installation of the language.
+Contains various scripts used to generate the trials prior to running the experiment. The script output `trials.json` is imported and used by `Main.ts` prior to running the trials in the browser.
